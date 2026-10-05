@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Card Studio – 3D Holographic Hero & Alien Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Studio Header -->
+  <header id="studio-header">
+    <div class="brand-section">
+      <span class="brand-icon">🌌</span>
+      <h1 class="brand-title">COSMIC CARD STUDIO</h1>
+      <span class="brand-tag">3D Holo Alien Sheets</span>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn-tool" id="btn-sound-toggle">🔊 Sound</button>
+      <button class="btn-tool" id="btn-flip-card">🔄 Karte umdrehen [Leertaste]</button>
+      <button class="btn-tool primary" id="btn-export-print">🖨️ Drucken / PDF Export</button>
+    </div>
+  </header>
+
+  <!-- Main Studio Layout -->
+  <main id="studio-main">
+
+    <!-- Left: Deck Roster Browser -->
+    <aside id="deck-browser">
+      <div class="sidebar-title">Alien-Roster (Cosmic Encounter)</div>
+      <div class="roster-list" id="deck-roster-list">
+        <!-- Injected via cards-data.js -->
+      </div>
+      <div style="margin-top: 14px; font-size: 0.72rem; color: #697896; line-height: 1.4; border-top: 1px dashed #262e42; padding-top: 10px;">
+        💡 Wähle eine Vorlage oder passe rechts alle Attribute und Kräfte live an.
+      </div>
+    </aside>
+
+    <!-- Center: 3D Parallax Stage -->
+    <section id="card-stage">
+      <div class="nebula-glow"></div>
+
+      <!-- 3D Interactive Card Object -->
+      <div id="hero-card" class="complexity-novice">
+
+        <!-- Holographic Iridescent Shimmer Foil -->
+        <div class="card-foil foil-holo-cosmic"></div>
+
+        <!-- Specular Glare -->
+        <div class="card-glare"></div>
+
+        <!-- FRONT FACE -->
+        <div class="card-face card-front">
+          <div>
+            <!-- Header Bar -->
+            <div class="card-header-bar">
+              <div>
+                <div class="card-name-title" id="card-title">THE OPTIMIZER</div>
+                <div class="card-power-subtitle" id="card-power-title">Power of Zero Tolerance</div>
+              </div>
+              <span class="complexity-tag" id="card-complexity-tag">🟢 ANFÄNGER</span>
+            </div>
+
+            <!-- Artwork Box -->
+            <div class="card-art-box" id="card-artwork-box">
+              <!-- Injected by app.js -->
+            </div>
+
+            <!-- Meta Bar -->
+            <div class="card-meta-bar">
+              <span class="card-role" id="card-role-display">Hauptspieler</span>
+              <div class="timing-pills" id="card-timing-pills">
+                <span class="timing-pill">Planung</span>
+                <span class="timing-pill">Aufdecken</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Power Text Box -->
+          <div class="card-power-box" id="card-power-body">
+            <!-- Injected by app.js -->
+          </div>
+
+          <!-- Quote Box -->
+          <div class="card-quote-box" id="card-quote-body">
+            „Es gibt im Kosmos nichts Schrecklicheres als einen Fehler von 0,001 Millimetern.“
+          </div>
+        </div>
+
+        <!-- BACK FACE (Flares & Cosmic Insignia) -->
+        <div class="card-face card-back">
+          <div class="back-header">
+            <div class="back-cosmic-logo">🪐</div>
+            <div class="back-title" id="back-card-name">THE OPTIMIZER</div>
+            <div style="font-size: 0.72rem; color: #a0a8be; margin-top: 2px;">FLARE-SPEZIFIKATIONEN</div>
+          </div>
+
+          <!-- Flare Sheet Section -->
+          <div class="flare-card-section">
+            <div class="flare-title">✨ Wild Flare</div>
+            <div class="flare-body" id="back-flare-wild">
+              Vor dem Aufdecken der Karten darfst du eine Karte von deiner Hand gegen die oberste Karte des Ablagestapels tauschen.
+            </div>
+
+            <div class="flare-title" style="margin-top: 10px; color: #ff7675;">⚡ Super Flare</div>
+            <div class="flare-body" id="back-flare-super">
+              Dein Bonus erhöht sich auf +4 Kampfkraft pro eigenem Schiff.
+            </div>
+          </div>
+
+          <div class="back-footer-hint">
+            Klicken oder [Leertaste], um die Vorderseite anzuzeigen
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stage Bottom Toolbar / Navigation -->
+      <div class="stage-controls-bar">
+        <span class="hint-pill">Bewegen: <strong>Maus über Karte</strong></span>
+        <span class="hint-pill">Umdrehen: <kbd>Leertaste</kbd></span>
+        <span class="hint-pill">Nächste Karte: <kbd>&larr;</kbd> <kbd>&rarr;</kbd></span>
+      </div>
+    </section>
+
+    <!-- Right: Live Card Editor -->
+    <aside id="card-editor">
+      <div class="sidebar-title">Karten-Designer (Live-Editor)</div>
+
+      <div class="editor-field">
+        <label class="editor-label">Held / Alien-Name</label>
+        <input type="text" id="edit-name" class="editor-input" value="THE OPTIMIZER">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Titel der Kraft</label>
+        <input type="text" id="edit-power-name" class="editor-input" value="Power of Zero Tolerance">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Komplexitätsgrad</label>
+        <select id="edit-complexity" class="editor-select">
+          <option value="novice">🟢 Anfänger (Grün)</option>
+          <option value="moderate">🟡 Moderat (Gelb)</option>
+          <option value="expert">🔴 Experte (Rot)</option>
+        </select>
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Holo-Foil Effekt</label>
+        <select id="edit-foil" class="editor-select">
+          <option value="holo-cosmic">🌈 Cosmic Nebula (Regenbogen-Holo)</option>
+          <option value="gold-secret">✨ Gold Secret Rare</option>
+          <option value="holo-prismatic">💎 Cyberpunk Prismatisch</option>
+          <option value="matte">⬛ Turnier-Matte (Klassisch)</option>
+        </select>
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Eigenes Porträt hochladen</label>
+        <input type="file" id="edit-image-upload" accept="image/*" class="editor-input" style="padding: 4px;">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Rolle & Timing</label>
+        <input type="text" id="edit-role" class="editor-input" value="Hauptspieler oder Verbündeter">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Regelbrechende Kraft (Beschreibung)</label>
+        <textarea id="edit-power-text" class="editor-textarea" style="min-height: 80px;"></textarea>
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Wild Flare</label>
+        <input type="text" id="edit-flare-wild" class="editor-input">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Super Flare</label>
+        <input type="text" id="edit-flare-super" class="editor-input">
+      </div>
+
+      <div class="editor-field">
+        <label class="editor-label">Flavor-Text / Kosmisches Zitat</label>
+        <textarea id="edit-quote" class="editor-textarea"></textarea>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Application Logic -->
+  <script src="js/audio.js"></script>
+  <script src="js/cards-data.js"></script>
+  <script src="js/card-engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
